@@ -1,0 +1,341 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.accordion {
+	background-color: #eee;
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+}
+.active, .accordion {
+	background-color: gold;
+	margin: 0.5px 0;
+}
+.panel {
+	padding: 10px 18px;
+	background-color: white;
+	display: none;
+	overflow: hidden;
+}
+
+@media only screen and (max-width: 550px) {
+	nav {
+		background: #fff;
+		box-shadow: hsl(0, 0%, 80%) 0 0 10px;
+		padding: 0.5em 5%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 5;
+	}
+	/*
+	.banner	{
+		background: url("./images/TRIBAL B.png");
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		height: 90vh;
+	}*/
+	.nav-links ul li {
+		display: inline;
+		margin: 0 0 0 10px;
+	}
+	.nav-links ul li a {
+		text-decoration: none;
+		color: #000;
+		font-size: 0.75em;
+		font-weight: 900;
+		font-family: Helvetica;
+	}
+	nav img {
+		width: 60px;
+		height: 60px;
+		object-fit: contain;
+	}
+	main, .sub-section {
+		margin: 1em 5%;
+	}
+	.greet-text {
+		font-size: 1.3em;
+		font-weight: 700;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+	.greet-text-main {
+		font-size: 1em;
+		font-weight: 300;
+		margin-bottom: 10px;
+	}
+	.application-info {
+		font-size: 0.95em;
+		margin-bottom: 10px;
+	}
+	.form-container {
+		box-shadow: hsl(0, 0%, 80%) 0 0 8px;
+		padding: 10px 20px 20px 20px;
+		border-radius: 8px;
+	}
+	.form-container input {
+		width: 100%;
+		padding: 10px;
+	}
+	.form-label {
+		font-size: 1.1em;
+		font-weight: 400;
+		font-family: Helvetica;
+		display: inline-block;
+		margin: 0.8em 0;
+	}
+	.mt {
+		margin-top: 1.2em;
+	}
+	.r-font {
+		font-size: 1em;
+	}
+	.mb {
+		margin-bottom: 1.2em;
+	}
+	input[type= "radio"],
+	input[type= "checkbox"] {
+		width: fit-content;
+	}
+	.title {
+		font-size: 1.1em;
+		font-weight: 500;
+		margin-bottom: 0.5em;
+	}
+	.cbox-wrapper {
+		margin: 15px 20px;
+	}
+	.cool-font {
+		font-size: 1em;
+		font-weight: 400;
+		font-style: Helvetica;
+		margin-bottom: 10px;
+	}
+	.pad {
+		margin-left: 20px;
+	}
+	.total-container {
+		background: #fff;
+		box-shadow: hsl(0, 0%, 80%) 0 0 8px;
+		color: #000;
+		font-weight: 500;
+		opacity: 0.7;
+	}
+	#choose-title,
+	#choose-k-shirt,
+	#choose-q-shirt,
+	#escort-service,
+	#security {
+		width: 100%;
+		padding: 10px;
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+	.row {
+		margin: 0;
+		clear: both;
+		padding: 0.5em 1em;
+	}
+	.to-right {
+		float: right;
+	}
+	#submit-btn {
+		display: inline-block;
+		margin-top: 1em;
+		padding: 10px 15px;
+		background: #000;
+		color: #fff;
+		border-radius: 4px;
+		border: 2px solid #fff;
+	}
+	.hide {
+		display: none;
+	}
+	.notes {
+		margin: 14px 0;
+		font-size: 01em;
+		font-weight: 300;
+		font-family: Helvetica;
+	}
+	ol {
+		margin-top: 1em;
+	}
+	ol li {
+		margin: 10px 2.5em;
+	}
+	.bold {
+		font-weight: 500;
+	}
+	.i-font {
+		text-indent: 2.5em;
+	}
+}
+
+@media only screen and (min-width: 550px) {
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: #fff;
+		padding: 0.1em 12%;
+	}
+	nav img {
+		height: 60px;
+		width: 60px;
+		object-fit: contain;
+	}
+	.nav-links ul li {
+		display: inline;
+		margin: 0 10px;
+	}
+	.nav-links ul li a {
+		text-decoration: none;
+		color: #000;
+		font-size: 1em;
+		font-weight: 900;
+	}
+	main, .sub-section {
+		margin: 2em 10%;
+	}
+	.greet-text {
+		font-size: 1.2em;
+		font-weight: 700;
+		text-align: center;
+		margin: 1em 0;
+	}
+	.greet-text-main {
+		font-size: 0.9em;
+		font-weight: 500;
+		margin-bottom: 1em;
+	}
+	.application-info {
+		font-size: 0.9em;
+		font-weight: 600;
+		margin-bottom: 1em;
+	}
+	.form-row {
+		margin: 0 auto;
+	}
+	.form-row:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.form-col {
+		float: left;
+		width: 48%;
+		margin: 1em 0 0 1.6%;
+	}
+	.form-col label {
+		margin-bottom: 10px;
+	}
+	.form-col > label,
+	.form-col > input {
+		display: block;
+	}
+	.form-container input {
+		width: 100%;
+		padding: 10px;
+	}
+	.form-container input[type="date"] {
+		padding: 9px;
+	}
+	.form-container input[type="time"] {
+		padding: 7px;
+	}
+	#choose-title,
+	#choose-k-shirt,
+	#choose-q-shirt,
+	#escort-service,
+	#security {
+		width: 50%;
+		padding: 10px;
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+	input[type="checkbox"],
+	input[type="radio"] {
+		width: fit-content;
+	}
+	.r-font {
+		font-size: 0.9em;
+		font-weight: 600;
+	}
+	.mb {
+		margin-bottom: 1em;
+	}
+	.mt {
+		margin-top: 1em;
+	}
+	.title {
+		font-size: 1.2em;
+		font-weight: 700;
+		margin: 1em 0;
+	}
+	.cool-font {
+		font-size: 1em;
+		font-weight: 600;
+		margin: 0.5em 0;
+	}
+	.total-container {
+		background: #fff;
+		color: #000;
+		padding: 0.5em 1em;
+		clear: both;
+		border-radius: 5px;
+		box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+		width: 75%;
+		margin: 0 auto;
+	}
+	.to-right {
+		float: right;
+	}
+	.row {
+		margin: 10px 0;
+	}
+	#submit-btn {
+		padding: 0.5em 2em;
+		background: rgb(202, 34, 34);
+		color: #fff;
+		display: block;
+		border: 2px solid #fff;
+		margin-top: 1em;
+		border-radius: 5px;
+		font-size: 1.2em;
+	}
+	.pad {
+		margin-left: 34px;
+	}
+	.notes {
+		margin: 1em 0;
+	}
+	ol li {
+		margin: 1em 2.5em;
+	}
+	.i-font {
+		font-size: 1.1em;
+	}
+	.hide {
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 900px) {
+	.form-row {
+		width: 60%;
+	}
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribal Gateway</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+    	.banner {
+			background: url("./bg2.jpg");
+			background-position: contain;
+			background-size: cover;
+			object-fit: contain;
+			background-repeat: no-repeat;
+			height: 70vh;
+		}
+    </style>
+</head>
+<body>
+	<nav>
+		<a href="./index.html"><img src="./static/images/TRIBAL D.png" alt=""></a>
+		<div class="nav-links">
+			<ul>
+				<li><a href="/">AIRPORT ESCORT</a></li>
+				<li><a href="./templates/index.html">VISA ON ARRIVAL</a></li>
+			</ul>
+		</div>
+	</nav>
+	<section class="banner"></section>
+	<main>
+    <div class="header">
+        <p class="greet-text-main">
+            Thank you for the opportunity to allow us to make your visit to Nigeria as stress free as possible. Our airport escort will greet you once you arrive and guide you through the immigration lines as quickly as possible. You can have one loved one meeet you right outside the security door. To customize you experience, please select you preferences below.
+        </p>
+    </div>
+
+    <div class="form-container">
+        <form action="" id="form" method="post">
+        	<div class="form-row">
+        		<div class="form-col">
+            		<label for="name" class="form-label">Name</label>
+            		<input type="text" name="name" id="name" placeholder="Name" required>
+            	</div>
+            	<div class="form-col">
+            		<label for="phone" class="form-label">Phone</label>
+            		<input type="tel" name="phone" id="phone" placeholder="Phone" required>
+            	</div>
+            	<div class="form-col">
+            		<label for="email" class="form-label">Email</label>
+            		<input type="email" name="email" id="email" placeholder="Email" required>
+            	</div>
+            	<div class="form-col">
+            		<label for="date-of-arrival" class="form-label">Date of Arrival</label>
+            		<input type="date" name="date-of-arrival" placeholder="Date of Arrival" required id="date-of-arrival">
+            	</div>
+            	<div class="form-col">
+            		<label for="time-of-arrival" class="form-label">Time of Arrival</label>
+            		<input type="time" name="time-of-arrival" placeholder="Time of Arrival" required id="time-of-arrival">
+            	</div>
+            	<div class="form-col">
+            		<label for="airline" class="form-label">Airline</label>
+            		<input type="text" name="airline" id="airline" placeholder="Airline" required>
+            	</div>
+            	<div class="form-col">
+            		<label for="date-of-departure" class="form-label">Date of Departure</label>
+            		<input type="date" name="date-of-departure" placeholder="Date of Departure" id="date-of-departure" required="">
+            	</div>
+            	<div class="form-col">
+            		<label for="no-of-persons" class="form-label">No. of persons arriving</label>
+            		<input type="number" name="no-of-persons-arriving" placeholder="No of persons arriving" required>
+            	</div>
+            	<div class="form-col">
+            		<label for="no-of-persons" class="form-label">Will you have children accomodating you? If so, how many and ages</label>
+            		<input type="text" name="no-of-persons-accomomdating" placeholder="Number of children accomodating and ages">
+            	</div>
+            </div>
+
+            <p class="r-font mb mt">I need escort services for</p>
+            <select name="escort-service" id="escort-service">
+                <option value="......">......</option>
+                <option value="150">Arrival only ($150)</option>
+                <option value="150">Departure only ($150)</option>
+                <option value="280">Both arrival and departure ($280)</option>
+            </select>
+            
+            <p class="r-font mt mb">Will someone be in Nigeria to welcome you at the airport? If yes, then please answer below.</p>
+            <div class="form-row">
+                <div class="form-col">
+                	<label for="relative-name" class="form-label">Relative Name</label>
+                	<input type="text" name="relative-name" placeholder="Relative Name" id="relative-name">
+                </div>
+                <div class="form-col">
+                	<label for="relative-phone" class="form-label">Relative Phone</label>
+                	<input type="tel" name="relative-phone" placeholder="Relative Phone" id="relative-phone">
+                </div>
+            </div>
+
+            <p class="r-font mt mb">Emergency contact in home country</p>
+            <div class="form-row">
+                <div class="form-col">
+                	<label for="emergency-name" class="form-label">Emergency Name</label>
+                	<input type="text" name="emergency-name" placeholder="Emergency Name" id="emergency-name">
+                </div>
+                <div class="form-col">
+                	<label for="emergency-phone" class="form-label">Emergency Phone</label>
+                	<input type="tel" name="emergency-phone" placeholder="Relative Phone" id="emergency-phone">
+                </div>
+            </div>
+
+            <legend class="title mt">TRANSPORTATION</legend>
+            <p class="r-font mb">Please indicate if you will need transportation on the day of your Arrival and Departure.<br><br>Please make your selection(s)</p>
+            <div class="cbox-wrapper">
+                <input type="checkbox" name="trans-from-airport-to-house" id="trans-from-airport-to-house" value= "50">
+                <span>I will need transportation from the airport to my housing accomodatios in the day of my arrival($50)</span>
+            </div>
+            <div class="cbox-wrapper">
+                <input type="checkbox" name="trans-from-house-to-airport" id="trans-from-house-to-airport" value= "50">
+                <span>I will need transportation from my housing accomodation to the airport on the day of my departure. ($50)</span>
+            </div>
+            <div class="cbox-wrapper">
+                <input type="checkbox" name="trans-to-relative" value="100" id="trans-to-relative">
+                <span>
+                    For my arrival, I will need transportation for my relative to be picked up and brought to the airport to greet me, and then take us both to our accomodation from the airport($100)
+                </span>
+            </div>
+            <div class="cbox-wrapper">
+                <input type="checkbox" name="trans-for-departure" value="100" id="trans-for-departure">
+                <span>
+                    I will also need this for my departure, to have my relative dropped off, after seeing me off and leaving the airport ($100)
+                </span>
+            </div>
+
+            <!-- SECURITY -->
+            <legend class="title">SECURITY</legend>
+            <P class="r-font mb">Would you like a security officer to escort you during your stay?</P>
+            <select name="security" required id="security">
+				<option value="......">......</option>
+				<option value="0">No</option>
+				<option value="175">Yes ($175)</option>
+			</select>
+			<p class="hide">Private officer $40 daily</p>
+			<p class="hide">Police officer $60 dily</p>
+			<p class="hide">Visibly armed $75 daily surcharge (in addition to above officer charge)</p><br>
+
+            <!-- T-SHIRTS -->
+            <div class="cool-font">Queen Tshirt $25</div>
+            <select name="choose-q-shirt" id="choose-q-shirt">
+				<option value="0">......</option>
+            	<option value="25">S</option>
+            	<option value="25">M</option>
+            	<option value="25">L</option>
+            	<option value="25">XL</option>
+            	<option value="25">1X</option>
+            	<option value="25">2X</option>
+            </select>
+
+            <div class="cool-font">Matching King Tshirt $25</div>
+            <select name="choose-k-shirt" id="choose-k-shirt">
+				<option value="0">......</option>
+            	<option value="25">S</option>
+            	<option value="25">M</option>
+            	<option value="25">L</option>
+            	<option value="25">XL</option>
+            	<option value="25">1X</option>
+            	<option value="25">2X</option>
+            </select>
+            
+            <legend class="title">Choose Title</legend>
+            <select name="choose-title" id="choose-title">
+				<option value="0">......</option>
+            	<option value="The Queen/King has arrived">The Queen/King has arrived</option>
+            	<option value="Breaking the spell">Breaking the spell</option>
+            	<option value="It's in my DNA">It's in my DNA</option>
+            </select>
+            
+            <button id="submit-btn" type="submit">Submit</button>
+        </form>
+		<br>
+		<legend class="title">SUBTOTAL</legend>
+		<div class="total-container">
+			<div class="row">
+				<span>Escort services</span>
+				<span class="to-right">$0</span>
+			</div>
+			<div class="row">
+				<span>Transportation Total</span>
+				<div class="to-right">
+				    <span>$</span>
+				    <span id="trans-total">0</span>
+				</div>
+			</div>
+			<div class="row">
+				<span>Security Total</span>
+				<span class="to-right">$0</span>
+			</div>
+			<div class="row">
+				<span>Tshirts Total</span>
+				<span class= "to-right">$0</span>
+			</div>
+			<div class="row">
+				<span>Shipping & Handling Fees</span>
+				<span class="to-right">$10</span>
+			</div>
+			<div class="row">
+				<span>TOTAL</span>
+				<div class="to-right">
+				    <span>$</span>
+				    <span id="total">10</span>
+				</div>
+			</div>
+		</div>
+    </div>
+	<br><br>
+	<div id="paypal-button-container"></div>
+    </main>
+    
+	<script src="./script.js"></script>
+	<script src="./main.js"></script>
+</body>
+</html>
