@@ -5,17 +5,10 @@ var b = document.querySelector("#trans-from-house-to-airport");
 var c = document.querySelector("#trans-to-relative");
 var d = document.querySelector("#trans-for-departure");
 
-// SECURITY
-
-var e = document.querySelector("#security");
-
 // cart total elements
-var total = document.querySelector("#total");
 var transTotalTag = document.querySelector("#trans-total");
 
-var cartTotal = 10;
-var transTotal = 0;
-var secTotal = 0;
+
 
 // Airport to House Event Listener
 a.addEventListener("change", function () {

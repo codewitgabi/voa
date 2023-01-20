@@ -175,7 +175,10 @@
 			</div>
 			<div class="row">
 				<span>Departure Escort</span>
-				<span class="to-right">$0</span>
+				<div class="to-right">
+					<span>$</span>
+					<span id="escort-total">0</span>
+				</div>
 			</div>
 			<div class="row">
 				<span>Transportation</span>
@@ -188,14 +191,17 @@
 				<span>Security Total</span>
 				<div class="to-right">
 				    <span>$</span>
-				    <span class="sec-total">
+				    <span id="sec-total">
 				        0
 				    </span>
 				</div>
 			</div>
 			<div class="row">
 				<span>Tshirts</span>
-				<span class= "to-right">$0</span>
+				<div class="to-right">
+					<span>$</span>
+					<span id="shirt-total">0</span>
+				</div>
 			</div>
 			<div class="row">
 				<span>Shipping & Handling Fees</span>
@@ -256,5 +262,100 @@
     
 	<script src="./script.js"></script>
 	<script src="./main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		var total = document.querySelector("#total");
+		var secTotalTag = document.querySelector("#sec-total");
+		var escortServiceTag = document.querySelector("#escort-total");
+		var shirtTotalTag = document.querySelector("#shirt-total");
+		
+		var cartTotal = 10;
+		var transTotal = 0;
+		var secTotal = 0;
+		var escort_service_total = 0;
+		var queenTshirtTotal = 0;
+		var kingTshirtTotal = 0;
+
+		(function () {
+			var prev;
+
+			$("#security").on('focus', function () {
+				prev = Number(this.value);
+			}).change(function() {
+				var cur = Number(this.value);
+				if (prev == 0 && cur != 0) {
+					cartTotal += cur;
+					secTotal += cur;
+				} else if (prev > 0 && cur == 0) {
+					cartTotal -= prev;
+					secTotal -= prev;
+				}
+				total.textContent = cartTotal;
+				secTotalTag.textContent = secTotal;
+				prev = cur;
+			});
+		})();
+		
+		(function () {
+			var prev;
+
+			$("#escort-service").on('focus', function () {
+				prev = Number(this.value);
+			}).change(function() {
+				var cur = Number(this.value);
+				if (prev == 0 && cur != 0) {
+					cartTotal += cur;
+					escort_service_total += cur;
+				} else if (prev > 0 && cur == 0) {
+					cartTotal -= prev;
+					escort_service_total -= prev;
+				}
+				escortServiceTag.textContent = escort_service_total;
+				total.textContent = cartTotal;
+				prev = cur;
+			});
+		})();
+
+		(function () {
+			var prev;
+
+			$("#choose-q-shirt").on('focus', function () {
+				prev = Number(this.value);
+			}).change(function() {
+				var cur = Number(this.value);
+				if (prev == 0) {
+					cartTotal += cur;
+					queenTshirtTotal += cur;
+				} else if (prev == 25 && cur == 0) {
+					cartTotal -= prev;
+					queenTshirtTotal -= prev;
+				}
+				shirtTotalTag.textContent = queenTshirtTotal + kingTshirtTotal;
+				total.textContent = cartTotal;
+				prev = cur;
+			});
+		})();
+
+		(function () {
+			var prev;
+
+			$("#choose-k-shirt").on('focus', function () {
+				prev = Number(this.value);
+			}).change(function() {
+				var cur = Number(this.value);
+				if (prev == 0) {
+					cartTotal += cur;
+					kingTshirtTotal += cur;
+				} else if (prev == 25 && cur == 0) {
+					cartTotal -= prev;
+					kingTshirtTotal -= prev;
+				}
+				shirtTotalTag.textContent = queenTshirtTotal + kingTshirtTotal;
+				total.textContent = cartTotal;
+				prev = cur;
+			});
+		})();
+
+	</script>
 </body>
 </html>
