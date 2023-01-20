@@ -19,11 +19,11 @@
 </head>
 <body>
 	<nav>
-		<a href="./index.html"><img src="./static/images/TRIBAL D.png" alt=""></a>
+		<a href="./index.html"><img src="./TRIBAL D.png" alt=""></a>
 		<div class="nav-links">
 			<ul>
 				<li><a href="/">AIRPORT ESCORT</a></li>
-				<li><a href="./templates/index.html">VISA ON ARRIVAL</a></li>
+				<li><a href="./index.html">VISA ON ARRIVAL</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -78,7 +78,7 @@
 
             <p class="r-font mb mt">I need escort services for</p>
             <select name="escort-service" id="escort-service">
-                <option value="......">......</option>
+                <option value="0">......</option>
                 <option value="150">Arrival only ($150)</option>
                 <option value="150">Departure only ($150)</option>
                 <option value="280">Both arrival and departure ($280)</option>
@@ -135,7 +135,7 @@
             <legend class="title">SECURITY</legend>
             <P class="r-font mb">Would you like a security officer to escort you during your stay?</P>
             <select name="security" required id="security">
-				<option value="......">......</option>
+				<option value="0">......</option>
 				<option value="0">No</option>
 				<option value="175">Yes ($175)</option>
 			</select>
@@ -181,22 +181,33 @@
 		<div class="total-container">
 			<div class="row">
 				<span>Escort services</span>
-				<span class="to-right">$0</span>
+				<div class="to-right">
+					<span>$</span>
+					<span id="escort-total">0</span>
+				</div>
 			</div>
 			<div class="row">
 				<span>Transportation Total</span>
 				<div class="to-right">
-				    <span>$</span>
-				    <span id="trans-total">0</span>
+					<span>$</span>
+					<span id="trans-total">0</span>
 				</div>
 			</div>
 			<div class="row">
 				<span>Security Total</span>
-				<span class="to-right">$0</span>
+				<div class="to-right">
+				    <span>$</span>
+				    <span id="sec-total">
+				        0
+				    </span>
+				</div>
 			</div>
 			<div class="row">
-				<span>Tshirts Total</span>
-				<span class= "to-right">$0</span>
+				<span>Tshirts</span>
+				<div class="to-right">
+					<span>$</span>
+					<span id="shirt-total">0</span>
+				</div>
 			</div>
 			<div class="row">
 				<span>Shipping & Handling Fees</span>
@@ -217,5 +228,105 @@
     
 	<script src="./script.js"></script>
 	<script src="./main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		var total = document.querySelector("#total");
+		var secTotalTag = document.querySelector("#sec-total");
+		var escortServiceTag = document.querySelector("#escort-total");
+		var shirtTotalTag = document.querySelector("#shirt-total");
+		
+		var cartTotal = 10;
+		var transTotal = 0;
+		var secTotal = 0;
+		var escort_service_total = 0;
+		var queenTshirtTotal = 0;
+		var kingTshirtTotal = 0;
+
+		(function () {
+			var prev;
+
+			$("#security").on('focus', function () {
+				prev = Number(this.value);
+			}).change(function() {
+				var cur = Number(this.value);
+				if (prev == 0 && cur != 0) {
+					cartTotal += cur;
+					secTotal += cur;
+				} else if (prev > 0 && cur == 0) {
+					cartTotal -= prev;
+					secTotal -= prev;
+				}
+				total.textContent = cartTotal;
+				secTotalTag.textContent = secTotal;
+				prev = cur;
+			});
+		})();
+		
+		(function () {
+			var prev;
+
+			$("#escort-service").on('focus', function () {
+				prev = Number(this.value);
+			}).change(function() {
+				var cur = Number(this.value);
+				if (prev == 0 && cur != 0) {
+					cartTotal += cur;
+					escort_service_total += cur;
+				} else if (prev == 150 && cur == 280) {
+					cartTotal += 130;
+					escort_service_total += 130;
+				} else if (prev == 280 && cur == 150) {
+					cartTotal -= 130;
+					escort_service_total -= 130;
+				} else if (prev > 0 && cur == 0) {
+					cartTotal -= prev;
+					escort_service_total -= prev;
+				}
+				escortServiceTag.textContent = escort_service_total;
+				total.textContent = cartTotal;
+				prev = cur;
+			});
+		})();
+
+		(function () {
+			var prev;
+
+			$("#choose-q-shirt").on('focus', function () {
+				prev = Number(this.value);
+			}).change(function() {
+				var cur = Number(this.value);
+				if (prev == 0) {
+					cartTotal += cur;
+					queenTshirtTotal += cur;
+				} else if (prev == 25 && cur == 0) {
+					cartTotal -= prev;
+					queenTshirtTotal -= prev;
+				}
+				shirtTotalTag.textContent = queenTshirtTotal + kingTshirtTotal;
+				total.textContent = cartTotal;
+				prev = cur;
+			});
+		})();
+
+		(function () {
+			var prev;
+
+			$("#choose-k-shirt").on('focus', function () {
+				prev = Number(this.value);
+			}).change(function() {
+				var cur = Number(this.value);
+				if (prev == 0) {
+					cartTotal += cur;
+					kingTshirtTotal += cur;
+				} else if (prev == 25 && cur == 0) {
+					cartTotal -= prev;
+					kingTshirtTotal -= prev;
+				}
+				shirtTotalTag.textContent = queenTshirtTotal + kingTshirtTotal;
+				total.textContent = cartTotal;
+				prev = cur;
+			});
+		})();
+	</script>
 </body>
 </html>
